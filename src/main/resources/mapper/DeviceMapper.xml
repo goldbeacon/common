@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yinda.gbcommon.mapper.DeviceMapper">
+    <resultMap type="com.yinda.gbcommon.bean.Device" id="BaseResultMap">
+        <result column="id" property="id"/>
+        <result column="collar_code" property="collar_code"/>
+        <result column="remark1" property="remark1"/>
+        <result column="remark2" property="remark2"/>
+    </resultMap>
+    <select id="queryById" resultMap="BaseResultMap">
+        select id,collar_code,remark1,remark2 from a_device where id = #{id}
+    </select>
+
+    <select id="queryAll" resultMap="BaseResultMap">
+        select id,collar_code,remark1,remark2 from a_device
+    </select>
+
+    <select id="save" parameterType="map">
+        update a_device set remark1=1 where id = #{id}
+    </select>
+</mapper>
